@@ -1,0 +1,15 @@
+import smtplib,string
+from a1 import otp
+gmailaddress = input("Kindly enter sender email id \n ")
+gmailpassword = input("please enter the password for that email address? \n  ")
+mailto = input("Kindly enter the receiver email id \n ")
+print(otp())
+msg=input("~~Enter the Generated One Time Password~~ :")
+mailServer = smtplib.SMTP('smtp.gmail.com' , 587)
+mailServer.ehlo()
+mailServer.starttls()
+mailServer.login(gmailaddress , gmailpassword)
+mailServer.sendmail(gmailaddress, mailto, msg)
+print("--------------------------------------------------\n")
+print(" \n the password is successfully Sent!")
+mailServer.quit()
